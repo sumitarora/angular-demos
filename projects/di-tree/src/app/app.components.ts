@@ -98,6 +98,7 @@ export class Component5 {
 
 @Component({
   selector: 'component6',
+  providers: [Service2],
   template: `
     <p class="link blue">Component Six</p>
     <p>{{ service1Value }}</p>

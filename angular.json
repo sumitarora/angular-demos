@@ -22,9 +22,7 @@
               "projects/routes/src/favicon.ico",
               "projects/routes/src/assets"
             ],
-            "styles": [
-              "projects/routes/src/styles.css"
-            ],
+            "styles": ["projects/routes/src/styles.css"],
             "scripts": []
           },
           "configurations": {
@@ -64,10 +62,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "routes:build:production"
+              "buildTarget": "routes:build:production"
             },
             "development": {
-              "browserTarget": "routes:build:development"
+              "buildTarget": "routes:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -75,7 +73,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "routes:build"
+            "buildTarget": "routes:build"
           }
         },
         "test": {
@@ -89,9 +87,7 @@
               "projects/routes/src/favicon.ico",
               "projects/routes/src/assets"
             ],
-            "styles": [
-              "projects/routes/src/styles.css"
-            ],
+            "styles": ["projects/routes/src/styles.css"],
             "scripts": []
           }
         }
@@ -110,17 +106,13 @@
             "outputPath": "dist/di-tree",
             "index": "projects/di-tree/src/index.html",
             "browser": "projects/di-tree/src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
+            "polyfills": ["zone.js"],
             "tsConfig": "projects/di-tree/tsconfig.app.json",
             "assets": [
               "projects/di-tree/src/favicon.ico",
               "projects/di-tree/src/assets"
             ],
-            "styles": [
-              "projects/di-tree/src/styles.css"
-            ],
+            "styles": ["projects/di-tree/src/styles.css"],
             "scripts": []
           },
           "configurations": {
@@ -151,10 +143,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "di-tree:build:production"
+              "buildTarget": "di-tree:build:production"
             },
             "development": {
-              "browserTarget": "di-tree:build:development"
+              "buildTarget": "di-tree:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -162,24 +154,19 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "di-tree:build"
+            "buildTarget": "di-tree:build"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ],
+            "polyfills": ["zone.js", "zone.js/testing"],
             "tsConfig": "projects/di-tree/tsconfig.spec.json",
             "assets": [
               "projects/di-tree/src/favicon.ico",
               "projects/di-tree/src/assets"
             ],
-            "styles": [
-              "projects/di-tree/src/styles.css"
-            ],
+            "styles": ["projects/di-tree/src/styles.css"],
             "scripts": []
           }
         }

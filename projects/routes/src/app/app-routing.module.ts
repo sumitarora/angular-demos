@@ -2,31 +2,60 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { HomeComponent } from './components/home.component';
-import { RouteOneComponent } from './components/route-one.component';
-import { RouteThreeComponent } from './components/route-three.component';
-import { RouteTwoComponent } from './components/route-two.component';
+import RoutesAuxComponent from './components/aux-route.component';
+import { Service1, Service2, Service3, Service4 } from './common/services';
+import { activateGuard } from './common/guards';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'route-one', component: RouteOneComponent },
-  { path: 'route-two', component: RouteTwoComponent },
-  { path: 'route-three', component: RouteThreeComponent },
+  { path: 'route-one', component: HomeComponent },
   {
-    path: 'feature-one',
-    loadChildren: () => import('./features/feature-one/feature-one.module').then(m => m.FeatureOneModule)
+    path: 'route-two',
+    component: HomeComponent,
+    providers: [Service1, Service2, Service3, Service4],
   },
   {
-    path: 'feature-two',
-    loadChildren: () => import('./features/feature-two/feature-two.module').then(m => m.FeatureTwoModule)
+    path: 'route-three',
+    component: HomeComponent,
+    providers: [Service3, Service4],
   },
   {
-    path: 'feature-three',
-    loadChildren: () => import('./features/feature-three/feature-three.module').then(m => m.FeatureThreeModule)
-  }
+    path: 'route-guard',
+    component: HomeComponent,
+    canActivate: [activateGuard],
+  },
+  { path: 'component-aux', component: RoutesAuxComponent, outlet: 'sidebar' },
+  {
+    path: 'route-params/:id',
+    component: HomeComponent,
+    title: 'Route Parmas',
+  },
+  { path: 'route-query-params', component: HomeComponent },
+
+  {
+    path: 'route-data',
+    component: HomeComponent,
+    data: {
+      message: 'Hello from route!!',
+    },
+  },
+  {
+    path: 'route-stand-alone',
+    providers: [Service1, Service2, Service3, Service4],
+    loadComponent: () =>
+      import('./components/standalone-route.component').then(
+        (x) => x.RoutesStandaloneComponent
+      ),
+  },
+  {
+    path: 'feature',
+    loadChildren: () =>
+      import('./feature/feature.module').then((m) => m.FeatureModule),
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
